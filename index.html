@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="widget-container">
+      <img
+        src="./src/img/bg-with-piggy.png"
+        alt="Background"
+        class="background"
+      />
+
+      <div class="widget">
+        <span class="title">BIN ICH REICH?</span>
+
+        <span class="subtitle"
+          >Finden Sie heraus wie reich oder arm Sie sind</span
+        >
+
+        <div class="slider-container">
+          <input
+            type="range"
+            min="0"
+            max="10000"
+            value="0"
+            class="slider"
+            id="slider"
+          />
+          <div class="box">
+            <span class="question">Wie hoch ist Ihr Einkommen?</span>
+            <span id="val" class="val"></span>
+          </div>
+        </div>
+
+        <div class="question2">Wie viele Personen leben in Ihrem Haushalt?</div>
+
+        <div class="input-container">
+          <div class="column">
+            <div class="young">
+              <div
+                class="button1 decrease"
+                id="decrease"
+                onclick="decreaseValue('number1')"
+                value="Decrease Value"
+              >
+                -
+              </div>
+              <input type="number" id="number1" class="number" value="0" />
+              <div
+                class="button2 increase"
+                id="increase"
+                onclick="increaseValue('number1')"
+                value="Increase Value"
+              >
+                +
+              </div>
+              <span class="age">jünger als 14 Jahre</span>
+            </div>
+            <!-- <span class="age">jünger als 14 Jahre</span> -->
+            <div class="column">
+              <div class="adult">
+                <div
+                  class="button1 decrease"
+                  id="decrease2"
+                  onclick="decreaseValue('number2')"
+                  value="Decrease Value"
+                >
+                  -
+                </div>
+                <input type="number" id="number2" class="number" value="0" />
+                <div
+                  class="button2 increase"
+                  id="increase2"
+                  onclick="increaseValue('number2')"
+                  value="Increase Value"
+                >
+                  +
+                </div>
+                <span class="age">älter als 14 Jahre</span>
+              </div>
+              <!-- <span class="age">älter als 14 Jahre</span> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="calculate" onclick="changePage">BERECHNEN</div>
+      </div>
+    </div>
+
+    <div class="graph-container">
+      <img
+        src="./src/img/bg-with-graph.png"
+        alt="Background"
+        class="background"
+      />
+
+      <div class="widget">
+        <span class="title">BIN ICH REICH?</span>
+
+        <span class="result">Ich gehöre zur deutschen [Zustand]</span>
+
+        <ul>
+          <li>7000</li>
+          <li>6000</li>
+          <li>5000</li>
+          <li>4000</li>
+          <li>3000</li>
+          <li>2000</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="/scripts.js"></script>
+</html>
