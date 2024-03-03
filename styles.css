@@ -275,7 +275,7 @@ input[type="number"] {
 /* Page 2 */
 
 .graph-container {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -285,7 +285,7 @@ input[type="number"] {
 .result {
   font-family: "Gotham Bold";
   font-size: 3dvw;
-  padding: 5svh 0;
+  padding: 5vw;
 }
 
 .container1 {
@@ -298,5 +298,5 @@ input[type="number"] {
 }
 
 .row1 {
-  padding-bottom: 3.8dvh;
+  padding-bottom: 3.8vw;
 }
