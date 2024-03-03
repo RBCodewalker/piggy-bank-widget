@@ -21,7 +21,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  /* display: none; */
+  display: none;
   /* max-width: 1200px; */
 }
 
@@ -65,7 +65,7 @@
 
 .subtitle {
   font-family: "Gotham Condensed Extra Black";
-  font-size: 3vw;
+  font-size: 4vw;
   color: white;
   padding: 1.5vw 0;
   text-align: center;
@@ -124,15 +124,21 @@
   border-radius: 15px;
   border-top: 0;
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
-.question,
-.val {
-  /* display: inline-block; */
-  align-self: flex-end;
+.question {
   margin: 0.75vw;
   font-size: 2vw;
   color: white;
+}
+
+.val {
+  margin: 0.75vw;
+  font-size: 2vw;
+  color: white;
+  align-self: flex-end;
 }
 
 .question {
@@ -146,44 +152,43 @@
 .question2 {
   font-family: "Gotham Bold";
   color: #aa3f49;
-  font-size: 2vw;
+  font-size: 2.5vw;
   text-align: center;
-  padding: 6dvh;
+  padding-top: 6vw;
 }
 
 /* Increase/Decrease Value */
 
-.input-container {
+.row {
   display: flex;
+  padding-top: 10vw;
+  width: 100%;
   justify-content: space-between;
-  /* align-items: flex-end;
-  width: 115%; */
 }
-.column {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
+
 .young,
 .adult {
   text-align: center;
-  padding-top: 5dvh;
+  position: relative;
 }
-
-/* .young span, .adult span { */
 .age {
   display: block;
   margin-top: 0.5vw;
   font-family: "Gotham Book";
   font-size: 2vw;
-  width: 60%;
+  align-self: center;
   color: #aa3f49;
 }
 
-/* .adult .age {
-  margin-right: -180px;
+.adult .age {
+  position: absolute;
   width: 100%;
-} */
+}
+
+.young .age {
+  position: absolute;
+  width: 100%;
+}
 
 .button1,
 .button2,
@@ -203,10 +208,9 @@
 }
 
 .button1 {
-  border-radius: 5px;
+  border-radius: 5px 0px 0px 5px;
   color: white;
   background-color: #a16a6d;
-  margin-left: -8vw;
   border-right: none;
 }
 .button1:active {
@@ -215,10 +219,9 @@
 }
 
 .button2 {
-  border-radius: 5px;
+  border-radius: 0px 5px 5px 0px;
   color: #bc0000;
   background-color: white;
-  margin-right: 0;
 }
 .button2:active {
   background-color: #cec8c8;
@@ -232,9 +235,11 @@
 
 .number {
   background-color: transparent;
-  margin: 0 -0.4vw;
+  margin: 0 -0.5vw;
   color: white;
   border-left: none;
+  border-right: none;
+
   z-index: -1;
 }
 
@@ -254,7 +259,7 @@ input[type="number"] {
   background-color: transparent;
   border: none;
   color: white;
-  margin-top: 10vw;
+  padding-top: 19vw;
   text-align: center;
   text-shadow: -5px 0px 15px #410707;
   transition: color 0.3s ease-in-out;
@@ -274,7 +279,7 @@ input[type="number"] {
   position: relative;
   display: flex;
   justify-content: center;
-  display: none;
+  /* display: none; */
 }
 
 .result {
@@ -289,10 +294,12 @@ ul {
   font-family: "Gotham Book";
   font-size: 2dvw;
   margin-top: 1dvh;
-  margin-left: -3.5dvw;
+  /* margin-left: -3.5dvw; */
   justify-content: center;
+  text-align: center;
 }
 
 li:not(:last-child) {
   padding-bottom: 4dvh;
+  place-items: center;
 }

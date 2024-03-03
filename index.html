@@ -13,14 +13,11 @@
         alt="Background"
         class="background"
       />
-
       <div class="widget">
         <span class="title">BIN ICH REICH?</span>
-
         <span class="subtitle"
           >Finden Sie heraus wie reich oder arm Sie sind</span
         >
-
         <div class="slider-container">
           <input
             type="range"
@@ -38,8 +35,8 @@
 
         <div class="question2">Wie viele Personen leben in Ihrem Haushalt?</div>
 
-        <div class="input-container">
-          <div class="column">
+        <div class="row">
+          <div class="column-left">
             <div class="young">
               <div
                 class="button1 decrease"
@@ -60,29 +57,27 @@
               </div>
               <span class="age">jünger als 14 Jahre</span>
             </div>
-            <!-- <span class="age">jünger als 14 Jahre</span> -->
-            <div class="column">
-              <div class="adult">
-                <div
-                  class="button1 decrease"
-                  id="decrease2"
-                  onclick="decreaseValue('number2')"
-                  value="Decrease Value"
-                >
-                  -
-                </div>
-                <input type="number" id="number2" class="number" value="0" />
-                <div
-                  class="button2 increase"
-                  id="increase2"
-                  onclick="increaseValue('number2')"
-                  value="Increase Value"
-                >
-                  +
-                </div>
-                <span class="age">älter als 14 Jahre</span>
+          </div>
+          <div class="column-right">
+            <div class="adult">
+              <div
+                class="button1 decrease"
+                id="decrease2"
+                onclick="decreaseValue('number2')"
+                value="Decrease Value"
+              >
+                -
               </div>
-              <!-- <span class="age">älter als 14 Jahre</span> -->
+              <input type="number" id="number2" class="number" value="0" />
+              <div
+                class="button2 increase"
+                id="increase2"
+                onclick="increaseValue('number2')"
+                value="Increase Value"
+              >
+                +
+              </div>
+              <span class="age">älter als 14 Jahre</span>
             </div>
           </div>
         </div>
