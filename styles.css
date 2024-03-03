@@ -288,18 +288,15 @@ input[type="number"] {
   padding: 5svh 0;
 }
 
-ul {
-  display: grid;
-  list-style-type: none;
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: "Gotham Book";
-  font-size: 2dvw;
-  margin-top: 1dvh;
-  /* margin-left: -3.5dvw; */
-  justify-content: center;
-  text-align: center;
+  font-size: 3dvw;
+  padding-top: 1vw;
 }
 
-li:not(:last-child) {
-  padding-bottom: 4dvh;
-  place-items: center;
+.row1 {
+  padding-bottom: 3.8dvh;
 }
