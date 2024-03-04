@@ -15,22 +15,34 @@
   src: url("/src/fonts/GothamNarrow-Medium.otf");
 }
 
+:root {
+  --slider-height: 1em;
+  --slider-background-image: url("/src/img/slider-icon.png");
+  --slider-thumb-scale: 1.5;
+}
+
+body,
+html {
+  margin: 0;
+}
+
 /* Page 1 */
 
 .widget-container {
   position: relative;
   display: flex;
   justify-content: center;
-  display: none;
+  /* display: none; */
 }
 
 .background {
   width: 80vw;
+  /* height: 100vh; */
 }
 
 .widget {
   position: absolute;
-  width: 90%;
+  width: 100%;
   top: 0;
   display: grid;
   justify-content: center;
@@ -43,7 +55,7 @@
   color: white;
   font-family: "Gotham Condensed Extra Black";
   font-size: 7vw;
-  padding: 0 1vw;
+  padding: 0 2vw;
   margin-top: 1vw;
   text-align: center;
 }
@@ -58,14 +70,12 @@
 
 /* Slider style */
 
-.slider-container {
-  width: 100%;
-}
-
 .slider {
   -webkit-appearance: none;
-  width: 98%;
-  height: 1.25vw;
+  width: 99.5%;
+  height: var(--slider-height);
+  padding: 0;
+  margin: 0;
   border-radius: 15px;
   background: transparent;
   outline: none;
@@ -82,61 +92,62 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 38px;
-  height: 38px;
-  border: 0;
-  background: url("/src/img/slider-icon.png");
-  cursor: pointer;
 }
 
+.slider::-webkit-slider-thumb,
 .slider::-moz-range-thumb {
-  width: 38px;
-  height: 38px;
+  width: calc(var(--slider-height) * var(--slider-thumb-scale));
+  height: calc(var(--slider-height) * var(--slider-thumb-scale));
   border: 0;
-  background: url("/src/img/slider-icon.png");
+  background-image: var(--slider-background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
   cursor: pointer;
-  margin-top: -10px;
 }
 
 .box {
-  width: 98.3%;
-  height: 6vw;
+  width: 90%;
+  height: fit-content;
   border: 2px solid white;
-  margin-top: -2vw;
-  border-radius: 15px;
-  border-top: 0;
+  border-top: none;
+  border-radius: 13px;
+
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+
+.income-info {
+  display: flex;
   justify-content: space-between;
 }
 
-.question {
-  margin: 0.75vw;
-  font-size: 2vw;
-  color: white;
-}
-
+.question,
 .val {
   margin: 0.75vw;
-  font-size: 2vw;
+  padding: 0.5vw;
   color: white;
-  align-self: flex-end;
 }
 
 .question {
+  font-size: 3vw;
   font-family: "Gotham Book";
 }
 
 .val {
   font-family: "Gotham Bold";
+  align-self: flex-end;
+  font-size: 3.2vw;
 }
 
 .question2 {
   font-family: "Gotham Bold";
   color: #aa3f49;
-  font-size: 2.5vw;
+  font-size: 3vw;
   text-align: center;
-  padding-top: 6vw;
+  padding-top: 4vw;
 }
 
 /* Increase/Decrease Value */
@@ -148,11 +159,11 @@
   justify-content: space-between;
 }
 
-.young,
-.adult {
+.household-people {
   text-align: center;
   position: relative;
 }
+
 .age {
   display: block;
   margin-top: 0.5vw;
@@ -162,18 +173,13 @@
   color: #aa3f49;
 }
 
-.adult .age {
+.household-people .age {
   position: absolute;
   width: 100%;
 }
 
-.young .age {
-  position: absolute;
-  width: 100%;
-}
-
-.button1,
-.button2,
+.increase,
+.decrease,
 .number {
   display: inline-block;
   border: 1px solid white;
@@ -187,29 +193,34 @@
   user-select: none;
 }
 
-.button1 {
+.decrease {
   border-radius: 5px 0px 0px 5px;
-  color: white;
   background-color: #a16a6d;
+  color: white;
   border-right: none;
 }
-.button1:active {
-  background-color: #a04b4e;
-  transform: translateY(1px);
-}
 
-.button2 {
+.increase {
   border-radius: 0px 5px 5px 0px;
-  color: #bc0000;
   background-color: white;
+  color: #bc0000;
 }
-.button2:active {
-  background-color: #cec8c8;
+
+.decrease:active,
+.increase:active {
   transform: translateY(1px);
 }
 
-.button1:hover,
-.button2:hover {
+.decrease:active {
+  background-color: #a04b4e;
+}
+
+.increase:active {
+  background-color: #cec8c8;
+}
+
+.increase:hover,
+.decrease:hover {
   cursor: pointer;
 }
 
@@ -239,7 +250,7 @@ input[type="number"] {
   background-color: transparent;
   border: none;
   color: white;
-  padding-top: 19vw;
+  margin-top: 19vw;
   text-align: center;
   text-shadow: -5px 0px 15px #410707;
   transition: color 0.3s ease-in-out;
@@ -256,9 +267,8 @@ input[type="number"] {
 
 .graph-container {
   position: relative;
-  display: flex;
   justify-content: center;
-  /* display: none; */
+  display: none;
 }
 
 .result {
@@ -267,7 +277,7 @@ input[type="number"] {
   padding: 5vw;
 }
 
-.container1 {
+.income-range {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,25 +301,29 @@ input[type="number"] {
   border-top-left-radius: 1%;
   border-top-right-radius: 1%;
   background-color: #ffffff;
+
   z-index: 1;
   opacity: 0;
   transition: height 0.5s ease, opacity 0.5s ease; /* Smooth transition for height and opacity */
 }
 
+#dynamic-line {
+  min-height: 10%;
+  max-height: 67.5%;
+}
 /* On hover, increase the height and make everything below translucent */
 .graph-container:hover .dynamic-line {
-  height: 70%; /* Adjust height as needed */
-  opacity: 0.8; /* Adjust opacity as needed */
+  opacity: 0.5; /* Adjust opacity as needed */
 }
 
 .topline {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 10%; /* Align to the center like the dynamic line */
   width: 80%; /* Match the width of the dynamic line */
   height: 2px; /* Height of the topline */
   z-index: 3; /* Ensure the topline is above the dynamic line and its top border */
-  display: none;
+  /* display: none; */
 }
 
 .shape {
@@ -319,13 +333,12 @@ input[type="number"] {
   margin: 80px auto;
 }
 
-.pill {
+/* .pill {
   width: 100%;
   height: 30%;
   border-radius: 30px;
   background-color: #ffffff;
   border: 5px solid #bc0000;
-  /* margin: 80px auto; */
   position: absolute;
   z-index: 5;
 }
@@ -359,4 +372,4 @@ hr {
   margin-top: 5%;
   width: 100%;
   transform: translateY(37vh);
-}
+} */

@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
   </head>
+
   <body>
-    <div class="widget-container">
+    <div class="widget-container" id="widget-container">
       <img
         src="./src/img/bg-with-piggy.png"
         alt="Background"
@@ -18,16 +19,10 @@
         <span class="subtitle"
           >Finden Sie heraus wie reich oder arm Sie sind</span
         >
-        <div class="slider-container">
-          <input
-            type="range"
-            min="0"
-            max="10000"
-            value="0"
-            class="slider"
-            id="slider"
-          />
-          <div class="box">
+        <div class="box">
+          <input type="range" value="0" class="slider" id="slider" />
+
+          <div class="income-info">
             <span class="question">Wie hoch ist Ihr Einkommen?</span>
             <span id="val" class="val"></span>
           </div>
@@ -37,20 +32,19 @@
 
         <div class="row">
           <div class="column-left">
-            <div class="young">
+            <div class="household-people" id="younger">
               <div
-                class="button1 decrease"
+                class="decrease"
                 id="decrease"
-                onclick="decreaseValue('number1')"
+                onclick="decreaseValue(event)"
                 value="Decrease Value"
               >
                 -
               </div>
-              <input type="number" id="number1" class="number" value="0" />
+              <input type="number" class="number" value="0" />
               <div
-                class="button2 increase"
-                id="increase"
-                onclick="increaseValue('number1')"
+                class="increase"
+                onclick="increaseValue(event)"
                 value="Increase Value"
               >
                 +
@@ -58,35 +52,37 @@
               <span class="age">jünger als 14 Jahre</span>
             </div>
           </div>
+
           <div class="column-right">
-            <div class="adult">
+            <div class="household-people">
               <div
-                class="button1 decrease"
-                id="decrease2"
-                onclick="decreaseValue('number2')"
+                class="decrease"
+                onclick="decreaseValue(event)"
                 value="Decrease Value"
               >
                 -
               </div>
-              <input type="number" id="number2" class="number" value="0" />
+
+              <input type="number" class="number" value="0" />
+
               <div
-                class="button2 increase"
-                id="increase2"
-                onclick="increaseValue('number2')"
+                class="increase"
+                onclick="increaseValue(event)"
                 value="Increase Value"
               >
                 +
               </div>
+
               <span class="age">älter als 14 Jahre</span>
             </div>
           </div>
         </div>
 
-        <div class="calculate" onclick="changePage">BERECHNEN</div>
+        <div class="calculate" onclick="changePage()">BERECHNEN</div>
       </div>
     </div>
 
-    <div class="graph-container">
+    <div class="graph-container" id="graph-container">
       <img
         src="./src/img/bg-with-graph.png"
         alt="Background"
@@ -96,18 +92,12 @@
       <div class="widget">
         <span class="title">BIN ICH REICH?</span>
 
-        <span class="result">Ich gehöre zur deutschen [Zustand]</span>
+        <span class="result" id="income-class"></span>
 
-        <div class="container1">
-          <div class="row1">7.000</div>
-          <div class="row1">6.000</div>
-          <div class="row1">5.000</div>
-          <div class="row1">4.000</div>
-          <div class="row1">2.000</div>
-        </div>
+        <div class="income-range" id="income-range"></div>
       </div>
 
-      <div class="topline">
+      <!-- <div class="topline">
         <hr />
         <div class="shape">
           <div class="pill">
@@ -115,8 +105,9 @@
             <div class="arrow bottom"></div>
           </div>
         </div>
-      </div>
-      <div class="dynamic-line"></div>
+      </div> -->
+
+      <div class="dynamic-line" id="dynamic-line"></div>
     </div>
   </body>
   <script src="/scripts.js"></script>
