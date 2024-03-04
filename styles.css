@@ -22,7 +22,6 @@
   display: flex;
   justify-content: center;
   display: none;
-  /* max-width: 1200px; */
 }
 
 .background {
@@ -37,30 +36,16 @@
   justify-content: center;
   margin: auto;
   place-items: center;
-  /* place-items: center; */
-  /* left: 0;
-  right: 0;
-  margin-left:auto;
-  margin-right: auto;
-  background: red;
-  opacity: 0.8; */
 }
 
 .title {
   background-color: #bc0000;
-  /* writing-mode: sideways-rl;
-  inset: 20px 40px; */
-  /* background-size: 100px 100px; */
   color: white;
-  /* width: 60%; */
-  /* max-width: 600px; */
   font-family: "Gotham Condensed Extra Black";
   font-size: 7vw;
   padding: 0 1vw;
   margin-top: 1vw;
-  /* flex-grow: 0; */
   text-align: center;
-  /* width: 50%; */
 }
 
 .subtitle {
@@ -69,14 +54,12 @@
   color: white;
   padding: 1.5vw 0;
   text-align: center;
-  /* width: 100px; */
 }
 
 /* Slider style */
 
 .slider-container {
   width: 100%;
-  /* padding: 5%; */
 }
 
 .slider {
@@ -90,7 +73,6 @@
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  /* z-index: 2; */
 }
 
 .slider:hover {
@@ -195,13 +177,11 @@
 .number {
   display: inline-block;
   border: 1px solid white;
-  /* margin: 0px; */
   width: 3.5vw;
   height: auto;
   text-align: center;
   vertical-align: middle;
   padding: 0.5vw 0;
-  /* background: #eee; */
   font-family: "Gotham Narrow Medium";
   font-size: 2vw;
   user-select: none;
@@ -275,7 +255,6 @@ input[type="number"] {
 /* Page 2 */
 
 .graph-container {
-  /* max-width: 1200px; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -284,7 +263,7 @@ input[type="number"] {
 
 .result {
   font-family: "Gotham Bold";
-  font-size: 3dvw;
+  font-size: 3vw;
   padding: 5vw;
 }
 
@@ -293,10 +272,91 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
   font-family: "Gotham Book";
-  font-size: 3dvw;
+  font-size: 3vw;
   padding-top: 1vw;
 }
 
 .row1 {
   padding-bottom: 3.8vw;
+}
+
+.dynamic-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 0px;
+  border-top: 2px solid #bc0000;
+  border-top-left-radius: 1%;
+  border-top-right-radius: 1%;
+  background-color: #ffffff;
+  z-index: 1;
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease; /* Smooth transition for height and opacity */
+}
+
+/* On hover, increase the height and make everything below translucent */
+.graph-container:hover .dynamic-line {
+  height: 70%; /* Adjust height as needed */
+  opacity: 0.8; /* Adjust opacity as needed */
+}
+
+.topline {
+  position: absolute;
+  top: 0;
+  left: 10%; /* Align to the center like the dynamic line */
+  width: 80%; /* Match the width of the dynamic line */
+  height: 2px; /* Height of the topline */
+  z-index: 3; /* Ensure the topline is above the dynamic line and its top border */
+  display: none;
+}
+
+.shape {
+  position: relative;
+  width: 100px; /* Adjust the width of the container as needed */
+  height: 50px;
+  margin: 80px auto;
+}
+
+.pill {
+  width: 100%;
+  height: 30%;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 5px solid #bc0000;
+  /* margin: 80px auto; */
+  position: absolute;
+  z-index: 5;
+}
+.arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+  background-color: transparent;
+  left: 50%;
+}
+.arrow.top {
+  top: -120%;
+  margin-left: -10%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #bc0000;
+}
+.arrow.bottom {
+  bottom: -120%;
+  margin-left: -10%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #bc0000;
+}
+
+hr {
+  background-color: #bc0000;
+  border: 1px solid #bc0000;
+  border-radius: 7px 7px 7px 7px;
+  height: 4px;
+  margin-top: 5%;
+  width: 100%;
+  transform: translateY(37vh);
 }
