@@ -16,9 +16,9 @@
 }
 
 :root {
-  --slider-height: 1em;
+  --slider-height: 1.2em;
   --slider-background-image: url("/src/img/slider-icon.png");
-  --slider-thumb-scale: 1.5;
+  --slider-thumb-scale: 1.7;
 }
 
 body,
@@ -244,24 +244,92 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.calculate {
+/* .calculate {
   font-family: "Gotham Bold";
   font-size: 4vw;
-  background-color: transparent;
+
   border: none;
-  color: white;
-  margin-top: 19vw;
-  text-align: center;
-  text-shadow: -5px 0px 15px #410707;
-  transition: color 0.3s ease-in-out;
+
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(to bottom, white 0, 20%, #bc0000 50%);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: color 0.2s ease-in-out;
+  animation: gradient-hover 5s ease-in-out infinite;
+  background-size: 200% 200%;
+  /* color: transparent;
+  background-image: linear-gradient(to bottom, white 0%, white 100%);
+  background-repeat: no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;  */
+/* margin-top: 19vw;
+  text-align: center; */
+/* text-shadow: -5px 0px 15px #410707; */
+/* cursor: pointer; */
+/* } */
+
+.calculate-text {
+  font-family: "Gotham Bold";
+  font-size: 4vw;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  line-height: 50px;
   cursor: pointer;
+  margin: 20px;
+  color: white;
 }
 
-.calculate:hover {
-  color: red;
-  transition: color 0.3s ease-in-out;
-  position: relative;
+.calculate-text:before {
+  transition: height 0.8s ease;
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  color: rgba(188, 0, 0, 100);
+  left: 0;
+  top: 0;
 }
+
+.calculate-text:hover:before {
+  height: 50px;
+}
+
+/* @keyframes changeColor {
+  to {
+    background-position: top left;
+  }
+} */
+
+/* .calculate:hover {
+  color: rgba(188, 0, 0, 0);
+} */
+
+/* @keyframes gradient-hover {
+  0% {
+    background-position-y: 0%;
+  }
+
+  10% {
+    background-position-y: 10%;
+  }
+
+  25% {
+    background-position-y: 25%;
+  }
+
+  50% {
+    background-position-y: 50%;
+  }
+
+  75% {
+    background-position-y: 75%;
+  }
+  100% {
+    background-position-y: 100%;
+  }
+} */
 
 /* Page 2 */
 
@@ -301,9 +369,9 @@ input[type="number"] {
   border-top-left-radius: 1%;
   border-top-right-radius: 1%;
   background-color: #ffffff;
-
+  user-select: none;
   z-index: 1;
-  opacity: 0;
+  opacity: 0.5;
   transition: height 0.5s ease, opacity 0.5s ease; /* Smooth transition for height and opacity */
 }
 
@@ -311,29 +379,24 @@ input[type="number"] {
   min-height: 10%;
   max-height: 67.5%;
 }
-/* On hover, increase the height and make everything below translucent */
-.graph-container:hover .dynamic-line {
-  opacity: 0.5; /* Adjust opacity as needed */
-}
 
-.topline {
+/* .topline {
   position: absolute;
   bottom: 0;
-  left: 10%; /* Align to the center like the dynamic line */
-  width: 80%; /* Match the width of the dynamic line */
-  height: 2px; /* Height of the topline */
-  z-index: 3; /* Ensure the topline is above the dynamic line and its top border */
-  /* display: none; */
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  z-index: 3;
 }
 
 .shape {
   position: relative;
-  width: 100px; /* Adjust the width of the container as needed */
+  width: 100px;
   height: 50px;
   margin: 80px auto;
 }
 
-/* .pill {
+.pill {
   width: 100%;
   height: 30%;
   border-radius: 30px;
