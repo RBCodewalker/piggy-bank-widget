@@ -16,7 +16,7 @@
 }
 
 :root {
-  --slider-height: 1em;
+  --slider-height: 3.5dvh;
   --slider-background-image: url("/src/img/slider-icon.png");
   --slider-thumb-scale: 1.5;
 }
@@ -70,9 +70,21 @@ html {
 
 /* Slider style */
 
+
+.box {
+  width: 100%;
+  height: fit-content;
+  border: 2px solid white;
+  border-top: none;
+  border-radius: 15px 15px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .slider {
   -webkit-appearance: none;
-  width: 99.5%;
+  width: 100%;
   height: var(--slider-height);
   padding: 0;
   margin: 0;
@@ -92,10 +104,6 @@ html {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-}
-
-.slider::-webkit-slider-thumb,
-.slider::-moz-range-thumb {
   width: calc(var(--slider-height) * var(--slider-thumb-scale));
   height: calc(var(--slider-height) * var(--slider-thumb-scale));
   border: 0;
@@ -106,17 +114,15 @@ html {
   cursor: pointer;
 }
 
-.box {
-  width: 90%;
-  height: fit-content;
-  border: 2px solid white;
-  border-top: none;
-  border-radius: 13px;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: space-around;
+.slider::-moz-range-thumb {
+  width: calc(var(--slider-height) * var(--slider-thumb-scale));
+  height: calc(var(--slider-height) * var(--slider-thumb-scale));
+  border: 0;
+  background-image: var(--slider-background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .income-info {
@@ -245,22 +251,49 @@ input[type="number"] {
 }
 
 .calculate {
-  font-family: "Gotham Bold";
+  /* font-family: "Gotham Bold";
   font-size: 4vw;
   background-color: transparent;
   border: none;
   color: white;
   margin-top: 19vw;
   text-align: center;
+  line-height: 50px;
   text-shadow: -5px 0px 15px #410707;
   transition: color 0.3s ease-in-out;
+  cursor: pointer; */
+  font-family: "Gotham Bold";
+  font-size: 4vw;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  line-height: 100%;
   cursor: pointer;
+  margin-top: 19vw;
+  color: white;
+  text-shadow: -5px 0px 15px #410707;
 }
 
-.calculate:hover {
+/* .calculate:hover {
   color: red;
   transition: color 0.3s ease-in-out;
   position: relative;
+} */
+
+.calculate:before {
+  transition: height 0.5s ease;
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  color: rgba(188, 0, 0, 100);
+  left: 0;
+  top: 0;
+  text-shadow: none;
+}
+
+.calculate:hover:before {
+  height: 100%;
 }
 
 /* Page 2 */
@@ -297,13 +330,13 @@ input[type="number"] {
   transform: translateX(-50%);
   width: 75%;
   height: 0px;
-  border-top: 2px solid #bc0000;
+  border-top: 5px solid #bc0000;
   border-top-left-radius: 1%;
   border-top-right-radius: 1%;
   background-color: #ffffff;
 
   z-index: 1;
-  opacity: 0;
+  opacity: 0.5;
   transition: height 0.5s ease, opacity 0.5s ease; /* Smooth transition for height and opacity */
 }
 
@@ -312,9 +345,9 @@ input[type="number"] {
   max-height: 67.5%;
 }
 /* On hover, increase the height and make everything below translucent */
-.graph-container:hover .dynamic-line {
-  opacity: 0.5; /* Adjust opacity as needed */
-}
+/* .graph-container:hover .dynamic-line {
+  opacity: 0.5;
+} */
 
 .topline {
   position: absolute;
