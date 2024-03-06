@@ -399,6 +399,25 @@ input[type="number"] {
   border-top: 0.4vw solid #bc0000;
 }
 
+.back {
+  background-color: #d49090;
+  color: white;
+  border-radius: 50%;
+  width: 4vw;
+  height: 4vw;
+  position: absolute;
+  bottom: -5vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-family: "Gotham Book";
+  font-size: 3vw;
+  user-select: none;
+}
+
+.back:hover {
+  background-color: #bc0000;
+}
 
 
 /* .topline {

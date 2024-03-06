@@ -9,6 +9,8 @@ const UPPER_CLASS = "Oberschicht";
 
 var slider = document.getElementById("slider");
 var output = document.getElementById("val");
+var under14 = document.getElementById("under14").value;
+var over14 = document.getElementById("over14").value;
 
 slider.setAttribute("min", MIN_INCOME);
 slider.setAttribute("max", MAX_INCOME);
@@ -57,16 +59,16 @@ function decreaseValue(e) {
 
 // Change to graph page when button 'BERECHNEN' clicked
 
+var widgetContainer = document.getElementById("widget-container");
+var graphContainer = document.getElementById("graph-container");
+
 function changePage() {
   income = slider.value;
-
-  var widgetContainer = document.getElementById("widget-container");
-  var graphContainer = document.getElementById("graph-container");
 
   widgetContainer.style.display = "none";
   graphContainer.style.display = "flex";
 
-  determineIncomeClass(income);
+  determineIncomeClass(income, under14, over14);
   calculateIncomeSliderHeight(income);
 }
 
@@ -103,7 +105,18 @@ function calculateIncomeSliderHeight(income) {
   dynamicLineElement.style.height = `${normalized}\%`;
 }
 
-function determineIncomeClass(income) {
+function determineIncomeClass(income, under14, over14) {
+
+  if (under14 > 0) {
+    income = income - 200*under14;
+  }
+
+  if (over14 > 0) {
+    income = income - 400*over14;
+  }
+  
+  console.log(income);
+
   var incomeClassElement = document.getElementById("income-class");
 
   var diff = (income / MAX_INCOME) * 100;
@@ -121,3 +134,8 @@ function determineIncomeClass(income) {
 }
 
 createIncomeRangeElements();
+
+function navigateBack() {
+  widgetContainer.style.display = "flex";
+  graphContainer.style.display = "none";
+}
