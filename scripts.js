@@ -55,6 +55,8 @@ function decreaseValue(e) {
   inputValue.value = value;
 }
 
+// Change to graph page when button 'BERECHNEN' clicked
+
 function changePage() {
   income = slider.value;
 
@@ -95,7 +97,7 @@ function calculateIncomeSliderHeight(income) {
   var diff = (income / MAX_INCOME) * 100;
 
   var tmax = parseFloat(dynamicLineStyle.getPropertyValue("max-height"));
-  var tmin = parseFloat(dynamicLineStyle.getPropertyValue("min-height"));
+  var tmin = parseFloat(10);
 
   var normalized = (diff / 100) * (tmax - tmin) + tmin;
   dynamicLineElement.style.height = `${normalized}\%`;
