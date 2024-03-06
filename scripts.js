@@ -73,12 +73,7 @@ function changePage() {
 }
 
 function createIncomeRangeElements() {
-  // var incomeRanges = [...Array(Math.ceil(MAX_INCOME / 1000)).keys()]
-  //   .map((x) => (x + 1) * 1000)
-  //   .reverse();
-
   var incomeRanges = [2000, 4000, 5000, 6000, 7000].reverse();
-
   var incomeRangeDiv = document.getElementById("income-range");
 
   for (income in incomeRanges) {
@@ -91,7 +86,6 @@ function createIncomeRangeElements() {
   }
 }
 
-// TODO: change based on topline
 function calculateIncomeSliderHeight(income) {
   var dynamicLineElement = document.getElementById("dynamic-line");
   var dynamicLineStyle = window.getComputedStyle(dynamicLineElement);
