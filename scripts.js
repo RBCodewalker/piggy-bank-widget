@@ -1,5 +1,4 @@
-// Slider
-
+// Defining constants
 const MIN_INCOME = 0;
 const MAX_INCOME = 7000;
 
@@ -7,8 +6,9 @@ const LOW_CLASS = "Unterschicht";
 const MIDDLE_CLASS = "Mittelschicht";
 const UPPER_CLASS = "Oberschicht";
 
+// Getting html elements
 var slider = document.getElementById("slider");
-var output = document.getElementById("val");
+var output = document.getElementById("income-value");
 var under14 = document.getElementById("under14").value;
 var over14 = document.getElementById("over14").value;
 
@@ -17,6 +17,8 @@ slider.setAttribute("max", MAX_INCOME);
 
 output.innerHTML = slider.value;
 
+
+// Slider
 slider.addEventListener("input", () => {
   let value = slider.value;
 
@@ -28,40 +30,29 @@ slider.addEventListener("input", () => {
   output.innerHTML = value;
 });
 
-// Increase input
-
-function increaseValue(e) {
+// Increase/Decrease input
+function updateValue(e) {
+  var diff = 0;
   var parent = e.target.parentElement;
 
   var inputValue = parent.children[1];
 
   var value = parseInt(inputValue.value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
 
-  inputValue.value = value;
+  // add value if increase button, subtract if decrease
+  if (e.target.classList.contains("decrease")) {
+    diff = -1;
+  } else if (e.target.classList.contains("increase")) {
+    diff = 1;
+  }
+
+  inputValue.value = isNaN(value) ? 0 : Math.max(0, value + diff);
 }
-
-// Decrease input
-
-function decreaseValue(e) {
-  var parent = e.target.parentElement;
-
-  var inputValue = parent.children[1];
-
-  var value = parseInt(inputValue.value, 10);
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? (value = 1) : "";
-  value--;
-
-  inputValue.value = value;
-}
-
-// Change to graph page when button 'BERECHNEN' clicked
 
 var widgetContainer = document.getElementById("widget-container");
 var graphContainer = document.getElementById("graph-container");
 
+// Change to graph page when button 'BERECHNEN' clicked
 function changePage() {
   income = slider.value;
 
@@ -72,6 +63,7 @@ function changePage() {
   calculateIncomeSliderHeight(income);
 }
 
+// Determine income range for the dynamic line
 function createIncomeRangeElements() {
   var incomeRanges = [2000, 4000, 5000, 6000, 7000].reverse();
   var incomeRangeDiv = document.getElementById("income-range");
@@ -86,6 +78,7 @@ function createIncomeRangeElements() {
   }
 }
 
+// Calculate and set the height of dynamic line in graph
 function calculateIncomeSliderHeight(income) {
   var dynamicLineElement = document.getElementById("dynamic-line");
   var dynamicLineStyle = window.getComputedStyle(dynamicLineElement);
@@ -99,7 +92,10 @@ function calculateIncomeSliderHeight(income) {
   dynamicLineElement.style.height = `${normalized}\%`;
 }
 
+// Income class classifier for graph
 function determineIncomeClass(income, under14, over14) {
+
+  // Arbitary formulas used for people's age and income determining class
 
   if (under14 > 0) {
     income = income - 200*under14;
@@ -109,8 +105,6 @@ function determineIncomeClass(income, under14, over14) {
     income = income - 400*over14;
   }
   
-  console.log(income);
-
   var incomeClassElement = document.getElementById("income-class");
 
   var diff = (income / MAX_INCOME) * 100;
@@ -129,6 +123,7 @@ function determineIncomeClass(income, under14, over14) {
 
 createIncomeRangeElements();
 
+// A back button for ease of use
 function navigateBack() {
   widgetContainer.style.display = "flex";
   graphContainer.style.display = "none";

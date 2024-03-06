@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
+    <title>IncomeCalculatorCover</title>
   </head>
 
   <body>
@@ -24,33 +24,30 @@
           <input type="range" value="0" class="slider" id="slider" />
 
           <div class="income-info">
-            <span class="question">Wie hoch ist Ihr Einkommen?</span>
-            <span id="val" class="val"></span>
+            <span class="income-question">Wie hoch ist Ihr Einkommen?</span>
+            <span id="income-value" class="income-value"></span>
           </div>
         </div>
 
-        <div class="question2">Wie viele Personen leben in Ihrem Haushalt?</div>
+        <div class="household-question">Wie viele Personen leben in Ihrem Haushalt?</div>
 
         <div class="row">
           <div class="column-left">
             <div class="household-people" id="younger">
               <div
                 class="decrease"
-                id="decrease"
-                onclick="decreaseValue(event)"
-                value="Decrease Value"
+                onclick="updateValue(event)"
               >
                 -
               </div>
-              <input type="number" class="number" id="under14" value="0" />
+              <input type="number" class="number-of-people" id="under14" value="0" />
               <div
                 class="increase"
-                onclick="increaseValue(event)"
-                value="Increase Value"
+                onclick="updateValue(event)"
               >
                 +
               </div>
-              <span class="age"
+              <span class="age-text"
                 >jünger als <br />
                 14 Jahre</span
               >
@@ -61,23 +58,21 @@
             <div class="household-people">
               <div
                 class="decrease"
-                onclick="decreaseValue(event)"
-                value="Decrease Value"
+                onclick="updateValue(event)"
               >
                 -
               </div>
 
-              <input type="number" class="number" id="over14" value="0" />
+              <input type="number" class="number-of-people" id="over14" value="0" />
 
               <div
                 class="increase"
-                onclick="increaseValue(event)"
-                value="Increase Value"
+                onclick="updateValue(event)"
               >
                 +
               </div>
 
-              <span class="age"
+              <span class="age-text"
                 >älter als <br />
                 14 Jahre</span
               >
@@ -102,13 +97,13 @@
       <div class="widget">
         <span class="title">BIN ICH REICH?</span>
 
-        <span class="result" id="income-class"></span>
+        <span class="income-class" id="income-class"></span>
 
         <div class="income-range" id="income-range"></div>
       </div>
 
       <div class="dynamic-line" id="dynamic-line">
-        <div class="rect">
+        <div class="pill">
           <div class="arrow top"></div>
           <div class="arrow bottom"></div>
         </div>

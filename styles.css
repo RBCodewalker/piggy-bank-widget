@@ -132,24 +132,24 @@ html {
   justify-content: space-between;
 }
 
-.question,
-.val {
+.income-question,
+.income-value {
   margin: 0.8vw;
   padding: 0 0.1vw;
   color: white;
   font-size: 1.5vw;
 }
 
-.question {
+.income-question {
   font-family: "Gotham Book";
 }
 
-.val {
+.income-value {
   font-family: "Gotham Bold";
   align-self: flex-end;
 }
 
-.question2 {
+.household-question {
   font-family: "Gotham Bold";
   color: #aa3f49;
   font-size: 1.8vw;
@@ -171,7 +171,7 @@ html {
   position: relative;
 }
 
-.age {
+.age-text {
   display: block;
   margin-top: 0.5vw;
   font-family: "Gotham Book";
@@ -180,14 +180,14 @@ html {
   color: #aa3f49;
 }
 
-.household-people .age {
+.household-people .age-text {
   position: absolute;
   width: 100%;
 }
 
 .increase,
 .decrease,
-.number {
+.number-of-people {
   display: inline-block;
   border: 1px solid white;
   width: 3.5vw;
@@ -231,7 +231,7 @@ html {
   cursor: pointer;
 }
 
-.number {
+.number-of-people {
   background-color: transparent;
   margin: 0 -0.5vw;
   color: white;
@@ -291,7 +291,7 @@ input[type="number"] {
   margin-right: auto;
 }
 
-.result {
+.income-class {
   font-family: "Gotham Bold";
   font-size: 2vw;
   margin: 3vw;
@@ -315,7 +315,6 @@ input[type="number"] {
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  /* height: 0%; */
   border-top: 3px solid rgba(188, 0, 0, 1);
   border-top-left-radius: 1%;
   border-top-right-radius: 1%;
@@ -330,7 +329,7 @@ input[type="number"] {
   max-height: 67.5%;
 }
 
-.rect {
+.pill {
   width: 10%;
   height: 0.5vw;
   border-radius: 1vw;
