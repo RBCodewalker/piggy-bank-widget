@@ -79,7 +79,7 @@ function createIncomeRangeElements() {
 
   for (income in incomeRanges) {
     var el = document.createElement("div");
-    el.classList.add("row1");
+    el.classList.add("rows");
 
     el.innerHTML = incomeRanges[income];
 
@@ -107,9 +107,9 @@ function determineIncomeClass(income) {
   var diff = (income / MAX_INCOME) * 100;
   var incomeClass = LOW_CLASS;
 
-  if (diff >= 0 && diff <= 40) {
+  if (diff >= 0 && diff <= 35) {
     incomeClass = LOW_CLASS;
-  } else if (diff >= 40 && diff <= 80) {
+  } else if (diff >= 35 && diff <= 70) {
     incomeClass = MIDDLE_CLASS;
   } else {
     incomeClass = UPPER_CLASS;

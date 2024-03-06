@@ -16,9 +16,9 @@
 }
 
 :root {
-  --slider-height: 3.5dvh;
+  --slider-height: 1.5vw;
   --slider-background-image: url("/src/img/slider-icon.png");
-  --slider-thumb-scale: 1.5;
+  --slider-thumb-scale: 1.4;
 }
 
 body,
@@ -32,11 +32,15 @@ html {
   position: relative;
   display: flex;
   justify-content: center;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  
   /* display: none; */
 }
 
 .background {
-  width: 80vw;
+  width: 100%;
   /* height: 100vh; */
 }
 
@@ -54,29 +58,28 @@ html {
   background-color: #bc0000;
   color: white;
   font-family: "Gotham Condensed Extra Black";
-  font-size: 7vw;
-  padding: 0 2vw;
-  margin-top: 1vw;
+  font-size: 5vw;
+  padding: 0 1vw;
+  margin-top: 0.5vw;
   text-align: center;
 }
 
 .subtitle {
   font-family: "Gotham Condensed Extra Black";
-  font-size: 4vw;
+  font-size: 2.5vw;
   color: white;
-  padding: 1.5vw 0;
+  margin: 1vw 0;
   text-align: center;
 }
 
 /* Slider style */
 
-
 .box {
-  width: 100%;
+  width: 90%;
   height: fit-content;
   border: 2px solid white;
   border-top: none;
-  border-radius: 15px 15px 30px 30px;
+  border-radius: 0.8vw 0.8vw 1.4vw 1.4vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -88,7 +91,8 @@ html {
   height: var(--slider-height);
   padding: 0;
   margin: 0;
-  border-radius: 15px;
+  margin-left: -0.1vw;
+  border-radius: 25px;
   background: transparent;
   outline: none;
   border: 2px solid white;
@@ -132,36 +136,35 @@ html {
 
 .question,
 .val {
-  margin: 0.75vw;
-  padding: 0.5vw;
+  margin: 0.8vw;
+  padding: 0 0.1vw;
   color: white;
+  font-size: 1.5vw;
 }
 
 .question {
-  font-size: 3vw;
   font-family: "Gotham Book";
 }
 
 .val {
   font-family: "Gotham Bold";
   align-self: flex-end;
-  font-size: 3.2vw;
 }
 
 .question2 {
   font-family: "Gotham Bold";
   color: #aa3f49;
-  font-size: 3vw;
+  font-size: 1.8vw;
   text-align: center;
-  padding-top: 4vw;
+  padding-top: 1.8vw;
 }
 
 /* Increase/Decrease Value */
 
 .row {
   display: flex;
-  padding-top: 10vw;
-  width: 100%;
+  padding-top: 5vw;
+  width: 115%;
   justify-content: space-between;
 }
 
@@ -174,7 +177,7 @@ html {
   display: block;
   margin-top: 0.5vw;
   font-family: "Gotham Book";
-  font-size: 2vw;
+  font-size: 1.5vw;
   align-self: center;
   color: #aa3f49;
 }
@@ -263,13 +266,13 @@ input[type="number"] {
   transition: color 0.3s ease-in-out;
   cursor: pointer; */
   font-family: "Gotham Bold";
-  font-size: 4vw;
+  font-size: 3vw;
   display: inline-block;
   vertical-align: top;
   position: relative;
   line-height: 100%;
   cursor: pointer;
-  margin-top: 19vw;
+  margin-top: 12vw;
   color: white;
   text-shadow: -5px 0px 15px #410707;
 }
@@ -302,12 +305,21 @@ input[type="number"] {
   position: relative;
   justify-content: center;
   display: none;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
 }
+/* position: relative;
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto; */
 
 .result {
   font-family: "Gotham Bold";
-  font-size: 3vw;
-  padding: 5vw;
+  font-size: 2vw;
+  margin: 3vw;
 }
 
 .income-range {
@@ -315,12 +327,11 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
   font-family: "Gotham Book";
-  font-size: 3vw;
-  padding-top: 1vw;
+  font-size: 2vw;
 }
 
-.row1 {
-  padding-bottom: 3.8vw;
+.rows {
+  margin-bottom: 3vw;
 }
 
 .dynamic-line {
@@ -330,7 +341,7 @@ input[type="number"] {
   transform: translateX(-50%);
   width: 75%;
   height: 0px;
-  border-top: 5px solid #bc0000;
+  border-top: 5px solid rgba(188, 0, 0, 1);
   border-top-left-radius: 1%;
   border-top-right-radius: 1%;
   background-color: #ffffff;
